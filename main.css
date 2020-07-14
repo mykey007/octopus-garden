@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap");
+
+/* Settings */
+:root {
+  --primaryColor: #32bea2;
+  --mainWhite: #ffffff;
+  --mainBlack: #222;
+  --mainGrey: #e7e7e7;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Elements */
+html {
+    font-size: 16px;
+      
+    @media screen and (min-width: 900px) {
+      font-size: 18px;
+    }
+      
+    @media screen and (min-width: 1200px) {
+      font-size: 20px;
+    }
+  }
+body {
+  color: var(--mainBlack);
+  background: var(--mainWhite);
+  font-family: "Mulish", sans-serif;
+}
+
+/* Components */
+
+/* Nav Styles */
+.navbar {
+    position: sticky;
+    top: 0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: rgb(248,250,253);
+    z-index: 1;
+  }
+  .navbar-center {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+  }
+  .nav-icon {
+    font-size: 1.5rem;
+  }
+
+  /* Logo */
+  .logo {
+    color: var(--primaryColor);
+    font-size: 2rem;
+    letter-spacing: .1rem;
+  }
+
+  .logo-end {
+    color: var(--mainBlack);
+  }
+  @media screen and (max-width: 900px) {
+    .logo {font-size: 24px;}
+  }
+ 
+
+  /* Cart icon */
+  .cart-btn {
+    position: relative;
+    cursor: pointer;
+  }
+  .cart-items {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--primaryColor);
+    padding: 0 5px;
+    border-radius: 30%;
+    color: var(--mainWhite);
+  }
