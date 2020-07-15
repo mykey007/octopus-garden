@@ -19,7 +19,8 @@ class Products {
     async getProducts() {
         try {
             let result = await fetch('./ListJSONTest.json')
-            return result
+            let data = await result.json()
+            return data
         } catch(err) {
             console.log(err)
         }
