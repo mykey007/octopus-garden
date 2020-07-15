@@ -20,7 +20,17 @@ class Products {
         try {
             let result = await fetch('./ListJSONTest.json')
             let data = await result.json()
-            return data
+            let products = data.List
+
+            products = products.map(listItem => {
+                const title = listItem.productLink.rel
+                const price = listItem.price
+                const prodUrl = listItem.productLink.href
+                const image = listItem.imageURL
+
+                return {title, price, prodUrl, image}
+            })
+            return products
         } catch(err) {
             console.log(err)
         }
@@ -43,5 +53,5 @@ document.addEventListener("DOMContentLoaded", () => {
     const products = new Products()
 
     // get all the products
-    products.getProducts().then(data => console.log(data))
+    products.getProducts().then(data => console.log(Products))
 })
