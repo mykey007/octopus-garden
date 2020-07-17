@@ -69,20 +69,23 @@ class UI {
         })
         productsDOM.innerHTML = result
     }
+
     buyNow() {
         //spread operator to better traverse the nodelist
         const buttons = [...document.querySelectorAll(".bag-btn")]
         buttonsDOM = buttons
 
         buttons.forEach(button => {
-            const id = button.dataset.id 
+            let id = button.dataset.id 
+
             //show values
             // console.log(id)
             let inCart = cart.find(item => item.id === id)
             if(inCart) {
                 button.innerText = 'In Cart'
                 button.disabled = true
-            } else {
+            }
+            // } else {
                 button.addEventListener('click', (event)=> {
                     event.target.innerText = 'In Cart'
                     event.target.disabled = true
@@ -106,7 +109,7 @@ class UI {
                     // show cart
                     this.showCart()
                 })
-            }
+            // } end else
             // console.log(id)
         })
     }
@@ -160,31 +163,31 @@ class Storage {
 }
 
 
-var items = [{id:2, title:"...", pId:62},
-             {id:1, title:"...", pId:43},
-             {id:4, title:"...", pId:74},
-             {id:9, title:"...", pId:35},
-             {id:5, title:"...", pId:81}];
+// var items = [{id:2, title:"...", pId:62},
+//              {id:1, title:"...", pId:43},
+//              {id:4, title:"...", pId:74},
+//              {id:9, title:"...", pId:35},
+//              {id:5, title:"...", pId:81}];
 
 
-class Sort {
-    static sortByProperty(property) {  
-        return function(a,b) {  
-           if(a[property] > b[property])  
-              return 1
-           else if(a[property] < b[property])  
-              return -1  
+// class Sort {
+//     static sortByProperty(property) {  
+//         return function(a,b) {  
+//            if(a[property] > b[property])  
+//               return 1
+//            else if(a[property] < b[property])  
+//               return -1  
        
-           return 0;  
-        }  
-     }
-}
+//            return 0;  
+//         }  
+//      }
+// }
 
 // update cart
 document.addEventListener("DOMContentLoaded", () => {
     const ui = new UI()
     const products = new Products()
-    const sort = new Sort()
+    // const sort = new Sort()
 
     // get all the products
     products.getProducts().then(products => {
@@ -192,7 +195,5 @@ document.addEventListener("DOMContentLoaded", () => {
         Storage.saveProducts(products)
     }).then(() => {
         ui.buyNow()
-    }).then(() => {
-        items.sort(Sort.sortByProperty('id'));
     })
 })
