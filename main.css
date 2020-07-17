@@ -3,7 +3,7 @@
 /* ############### Settings ############### */
 :root {
   --primaryColor: rgba(41, 163, 138, 1);
-  --primaryColorHalf: rgba(50, 190, 162, 0.5);
+  --primaryColorHalf: rgba(173, 210, 207, 1);
   --secondaryColor: rgba(20, 171, 210, 1);
   --mainWhite: #ffffff;
   --mainBlack: #222;
@@ -275,7 +275,7 @@ body {
   /* ############### Footer ############### */
 
   .footer {
-      background: rgb(173, 210, 207,1);
+      background: var(--primaryColorHalf);
       display: flex;
       flex-direction: column;
       justify-content: center;
