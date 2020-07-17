@@ -2,7 +2,7 @@ const cartBtn = document.querySelector(".cart-btn")
 const closeCartBtn = document.querySelector(".close-cart")
 const clearCartBtn = document.querySelector(".clear-cart")
 const cartDOM = document.querySelector(".cart")
-const cartOverlay = document.querySelector(".close-overlay")
+const cartOverlay = document.querySelector(".cart-overlay")
 const cartItems = document.querySelector(".cart-items")
 const cartTotal = document.querySelector(".cart-total")
 const cartContent = document.querySelector(".cart-content")
@@ -76,6 +76,8 @@ class UI {
 
         buttons.forEach(button => {
             const id = button.dataset.id 
+            //show values
+            // console.log(id)
             let inCart = cart.find(item => item.id === id)
             if(inCart) {
                 button.innerText = 'In Cart'
@@ -84,28 +86,76 @@ class UI {
                 button.addEventListener('click', (event)=> {
                     event.target.innerText = 'In Cart'
                     event.target.disabled = true
-                    console.log(event)
+                    // console.log(event)
+
                     // get product from products
-                    // add product to cart
+                    let cartItem = {...Storage.getProduct(id), amount: 1}
+                    // add to empty cart array
+                    cart = [...cart, cartItem]
+                    // console.log(cart)
+
                     // save cart in local storage too
+                    Storage.saveCart(cart)
+
                     // set cart values
+                    this.setCartValues(cart)
+
                     // add cart item
+                    this.addCartItem(cartItem)
+
+                    // show cart
+                    this.showCart()
                 })
             }
             // console.log(id)
         })
+    }
+
+    setCartValues(cart) {
+        let tempTotal = 0
+
+        cart.map(item => {
+            tempTotal += item.price * item.amount
+        })
+        cartTotal.innerText = parseFloat(tempTotal.toFixed(2))
+        // console.log(cartTotal)
+    }
+
+    addCartItem(item) {
+        const div = document.createElement('div')
+        div.classList.add('cart-item')
+        div.innerHTML = `
+            <img src='${item.image}' alt="">
+            <div>
+                <h3>${item.title}</h3>
+                <h4>$${item.price}</h4>
+                <span class="remove-item" data-id=${item.id}>remove</span>
+            </div>
+        `
+        cartContent.appendChild(div)
+        // console.log(cartContent)
+
+    }
+
+    showCart() {
+        cartOverlay.classList.add('transparentBcg')
+        cartDOM.classList.add('showCart')
     }
 }
 
 // save it locally
 class Storage {
      static saveProducts(products) {
-         localStorage.setItem("products", JSON.stringify(products))
+         localStorage.setItem('products', JSON.stringify(products))
      }
 
      static getProduct(id) {
          let products = JSON.parse(localStorage.getItem('products'))
          return products.find(product => product.id === id)
+     }
+
+     static saveCart(cart) {
+         localStorage.setItem('cart', JSON.stringify(cart))
      }
 }
 
