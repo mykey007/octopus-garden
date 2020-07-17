@@ -2,7 +2,7 @@
 
 /* ############### Settings ############### */
 :root {
-  --primaryColor: #32bea2;
+  --primaryColor: rgba(41, 163, 138, 1);
   --primaryColorHalf: rgba(50, 190, 162, 0.5);
   --secondaryColor: rgba(20, 171, 210, 1);
   --mainWhite: #ffffff;
@@ -45,7 +45,8 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    background: rgb(248,250,253);
+    background: var(--mainWhite);
+    border-bottom: 1px solid var(--mainGrey);
     z-index: 1;
   }
   .navbar-center {
@@ -145,7 +146,8 @@ body {
   .product-img {
     display: block;
     width: 100%;
-    min-height: 12rem;
+    max-width: 175px;
+    max-height: 175px;
     transition: var(--mainTransition);
   }
   .img-container:hover .product-img {
