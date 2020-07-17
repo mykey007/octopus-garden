@@ -270,3 +270,20 @@ body {
     text-transform: capitalize;
     margin-bottom: 1rem;
   }
+
+
+  /* ############### Footer ############### */
+
+  .footer {
+      background: rgb(173, 210, 207,1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+  }
+
+  .footer-img {
+      max-width: 30%;
+      max-height: 30%;
+  }
