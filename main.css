@@ -98,10 +98,15 @@ body {
 
 .products {
     padding: 4rem 0;
-  }
+}
+.section-title {
+    max-width: 90vw;
+    text-align: center;
+    margin: 0 auto;
+}
   .section-title h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 5rem;
     text-transform: capitalize;
     letter-spacing: var(--mainSpacing);
@@ -124,7 +129,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 92%;
     background: var(--mainWhite);
     border: 2px solid var(--primaryColor);
     border-radius: 2rem;
