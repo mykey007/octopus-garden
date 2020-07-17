@@ -85,7 +85,7 @@ body {
   .cart-items {
     position: absolute;
     top: -8px;
-    right: -8px;
+    right: 8px;
     background: var(--primaryColor);
     padding: 0 5px;
     border-radius: 30%;
@@ -124,21 +124,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    background: var(--primaryColor);
-    border: none;
+    width: 90%;
+    background: var(--mainWhite);
+    border: 2px solid var(--primaryColor);
+    border-radius: 2rem;
     text-transform: uppercase;
     padding: 0.5rem 0.75rem;
+    margin: 0 0 1rem 0;
     letter-spacing: var(--mainSpacing);
     font-weight: bold;
     transition: var(--mainTransition);
     cursor: pointer;
   }
   .bag-btn:hover {
-    color: var(--mainWhite);
+    /* color: var(--mainWhite); */
     background: var(--primaryColorHalf);
   }
-  .la-shopping-cart {
+  .la-shopping-bag {
     margin-right: 1rem;
     font-size: 2rem;
   }

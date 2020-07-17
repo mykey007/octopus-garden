@@ -61,7 +61,7 @@ class UI {
                     <h3>${product.title}</h3>
                     <h4 class="price-color">$${product.price}</h4>
                     <button class="bag-btn" data-id="${product.prodId}">
-                        <i class="las la-shopping-cart"></i>
+                        <i class="las la-shopping-bag"></i>
                         add to cart
                     </button>
                 </article>
@@ -92,7 +92,8 @@ class UI {
                     // console.log(event)
 
                     // get product from products
-                    let cartItem = {...Storage.getProduct(id), amount: 1}
+                    let cartItem = {...Storage.getProduct(id)}
+
                     // add to empty cart array
                     cart = [...cart, cartItem]
                     // console.log(cart)
