@@ -38,9 +38,6 @@
             border: 1px solid var(--mainGrey);
         }
 
-        .logo-end {
-            margin-left:0.75rem
-        }
         .price-color {
             color: var(--primaryColor);
             align-self: flex-start;
@@ -53,7 +50,10 @@
     <nav class="navbar">
         <div class="navbar-center">
             <span class="nav-icon"><i class="las la-bars"></i></span>
-            <span class="logo">Octopus's <span class="logo-end">Garden</span></span>
+            <div class="icon-container">
+                <img src="img/icon.svg" class="site-icon" />
+                <span class="logo"> Octopus's <span class="logo-end">Garden</span></span>
+            </div>
             <div class="cart-btn">
                 <span class="nav-icon"><i class="las la-shopping-bag"></i></span>
                 <div class="cart-items">8</div>
@@ -67,31 +67,117 @@
             <button class="banner-btn">View Now</button>
         </div>
     </header> -->
+    <header class="section-title">
+        <h2>Restin' our head, on the sea bed</h2>
+    </header>
     <main class="products">
-        <header class="section-title">
-            <h2>Restin' our head, on the sea bed</h2>
-        </header>
+        
         <section class="products-center">
         <!-- moved to app.js as template literal -->
         </section>
-        <aside class="cart-overlay">
-            <div class="cart">
-                <span class="close-cart">
-                    <ion-icon name="close-outline"></ion-icon>
-                </span>
-                <h2>your cart</h2>
-                <div class="cart-content">
-                    <!-- <div class="cart-item">
-                        moved to app.js as template literal
-                    </div> -->
-                    <div class="cart-footer">
-                        <h2>your total: $ <span class="cart-total">0</span></h2>
-                        <button class="clear-cart banner-btn"></button>
+        <div class="filters">
+      
+            <h2>Sort by</h2>
+
+            <h3>Price</h3>
+            <ul class="collection__filter-checkbox-list"><li class="collection__filter-checkbox">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox" class="checkbox" id="filter-5-tag-price_-0-to-100" name="tag-price" data-action="toggle-tag" data-tag="price_-0-to-100" data-tag-user="$0 to $100">
+                  
+                </div>
+
+                <label for="filter-5-tag-price_-0-to-100">$0 to $100</label>
+              </li><li class="collection__filter-checkbox">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox" class="checkbox" id="filter-5-tag-price_-100-to-250" name="tag-price" data-action="toggle-tag" data-tag="price_-100-to-250" data-tag-user="$100 to $250">
+                  
+                </div>
+
+                <label for="filter-5-tag-price_-100-to-250">$100 to $250</label>
+              </li><li class="collection__filter-checkbox">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox" class="checkbox" id="filter-5-tag-price_-250-to-500" name="tag-price" data-action="toggle-tag" data-tag="price_-250-to-500" data-tag-user="$250 to $500">
+                  
+                </div>
+
+                <label for="filter-5-tag-price_-250-to-500">$250 to $500</label>
+              </li><li class="collection__filter-checkbox">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox" class="checkbox" id="filter-5-tag-price_-500-to-800" name="tag-price" data-action="toggle-tag" data-tag="price_-500-to-800" data-tag-user="$500 to $800">
+                  
+                </div>
+
+                <label for="filter-5-tag-price_-500-to-800">$500 to $800</label>
+              </li>
+
+              <li class="collection__filter-checkbox">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox" class="checkbox" id="filter-5-tag-price_-800-to-1500" name="tag-price" data-action="toggle-tag" data-tag="price_-800-to-1500" data-tag-user="$800 to $1500">
+                  
+                </div>
+
+                <label for="filter-5-tag-price_-800-to-1500">$800 to $1500</label>
+              </li>
+              <li class="collection__filter-checkbox">
+                <div class="checkbox-wrapper">
+                  <input type="checkbox" class="checkbox" id="filter-5-tag-price_more-than-1500" name="tag-price" data-action="toggle-tag" data-tag="price_more-than-1500" data-tag-user="More than $1500">
+                  
+                </div>
+
+                <label for="filter-5-tag-price_more-than-1500">More than $1500</label>
+              </li></ul>
+
+
+
+              <h3>Brand</h3>
+              <ul class="collection__filter-checkbox-list">
+                <li class="collection__filter-checkbox">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" class="checkbox" id="filter-Mary-B" name="tag-price" data-action="toggle-tag" data-tag="filter-Mary-B" data-tag-user="filter-Mary-B">
                     </div>
+                    <label for="filter-Mary-B">Mary B Decorative Art</label>
+                </li>
+                <li class="collection__filter-checkbox">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" class="checkbox" id="filter-Zeckos" name="tag-price" data-action="toggle-tag" data-tag="Zeckos" data-tag-user="Zeckos">
+                    </div>
+                    <label for="filter-Zeckos">Zeckos</label>
+                </li>
+                <li class="collection__filter-checkbox">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" class="checkbox" id="filter-UnbeatableSale" name="tag-price" data-action="toggle-tag" data-tag="UnbeatableSale" data-tag-user="UnbeatableSale">
+                    </div>
+                    <label for="filter-UnbeatableSale">UnbeatableSale</label>
+                </li>
+                <li class="collection__filter-checkbox">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" class="checkbox" id="filter-Christmas-Central" name="tag-price" data-action="filter-Christmas-Central" data-tag-user="filter-Christmas-Central">
+                    </div>
+                    <label for="filter-Christmas-Central">Christmas Central</label>
+                </li>
+
+              </ul>
+
+        </div>
+        <br class="clear" />
+    </main>
+    <aside class="cart-overlay">
+        <div class="cart">
+            <span class="close-cart">
+                <ion-icon name="close-outline"></ion-icon>
+            </span>
+            <h2>your cart</h2>
+            <div class="cart-content">
+                <!-- <div class="cart-item">
+                    moved to app.js as template literal
+                </div> -->
+                <div class="cart-footer">
+                    <h2>your total: $ <span class="cart-total">0</span></h2>
+                    <button class="clear-cart banner-btn"></button>
                 </div>
             </div>
-        </aside>
-    </main>
+        </div>
+    </aside>
     <footer class="footer">
         <img src="img/gardener.svg" class="footer-img" alt="octopus gardener" />
         <p>In an octopus's garden near a cave</p>
