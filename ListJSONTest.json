@@ -17,7 +17,7 @@
 		"hasFullDescription": true,
 		"brand": "Mary B Decorative Art",
 		"productUrl": "https://shop.com/Octopus+Ocean+Animal+Bookend+Pair+Resin-1686371538-p+.xhtml",
-		"isAvailable": true,
+		"isAvailable": false,
 		"maxOrderQuantity": 500,
 		"mediumImageURL": "https://img.shop.com/Image/240000/249600/249626/products/1686371538__175x175__.jpg"
 	}, {
@@ -59,7 +59,7 @@
 		"hasFullDescription": true,
 		"brand": "UnbeatableSale",
 		"productUrl": "https://shop.com/Unicorn+Studios+WU76559A4+Steampunk+Octopus+Wall+Plaque+Bronze-1541177129-p+.xhtml",
-		"isAvailable": true,
+		"isAvailable": false,
 		"maxOrderQuantity": 500,
 		"mediumImageURL": "https://img.shop.com/Image/250000/251800/251872/products/1541177129__175x175__.jpg"
 	}, {

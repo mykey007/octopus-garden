@@ -51,7 +51,7 @@ class UI {
 
         products.forEach(product => {
             result += `
-                <article class="flex-col article-border" data-brand="${product.brand}" data-available="${product.isAvailable}>
+                <article class="flex-col article-border" data-brand="${product.brand}" data-available="${product.isAvailable}">
                     <div class="img-container">
                         <a href="${product.prodUrl}">
                             <img src="${product.image}" alt="${product.title}" class="product-img">
@@ -59,6 +59,7 @@ class UI {
                         
                     </div>
                     <h3>${product.title}</h3>
+                    <p class="seller">From: ${product.brand}</p>
                     <h4 class="price-color">$${product.price}</h4>
                     <button class="bag-btn" data-id="${product.prodId}">
                         <i class="las la-shopping-bag"></i>
@@ -205,8 +206,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // get input element
 let filterInput = document.getElementById('filterInput')
+let availableInput = document.getElementById('available')
 // add event listener 
 filterInput.addEventListener('keyup', filterNames)
+availableInput.addEventListener('change', isAvailable)
 
 function filterNames() {
     let filterValue = document.getElementById('filterInput').value.toUpperCase()
@@ -215,15 +218,43 @@ function filterNames() {
     let names = document.getElementById('product-names')
     // get product name
     let product = names.querySelectorAll('article.article-border')
-
     // loop through all products
     for(let i = 0; i < product.length; i++) {
         let title = product[i].getElementsByTagName('h3')[0]
+        let brand = product[i].getElementsByClassName('seller')[0]
+        // let available = product[i].dataset.available === 'true'
+
         // if matched
-        if(title.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+        if(title.innerHTML.toUpperCase().indexOf(filterValue) > -1 
+            || brand.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
             product[i].style.display= ''
         } else {
             product[i].style.display= 'none'
         }
+    }
+}
+
+
+function isAvailable() {
+    // Get the checkbox
+    let availableInput = document.getElementById('available')
+    // Get the output 
+    let product = document.querySelectorAll('article.article-border')
+
+    // is it available?
+    if (availableInput.checked) {
+        console.log(1)
+        product.forEach(e => {
+            if (e.dataset.available === 'false') {
+                e.style.display = "none";
+            }
+        })
+    } else {
+        product.forEach(e => {
+            console.log(2)
+            if (e.dataset.available === 'true') {
+                e.style.display = "";
+            }
+        })
     }
 }

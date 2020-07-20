@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="All about the Octopus's Garden. Info, pictures, shopping, price comparison.">
     <title>Octopus's Garden</title>
     <!-- custom css -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -51,7 +52,7 @@
         <div class="navbar-center">
             <span class="nav-icon"><i class="las la-bars"></i></span>
             <div class="icon-container">
-                <img src="img/icon.svg" class="site-icon" />
+                <img src="img/icon.svg" class="site-icon" alt="octopus's garden" />
                 <span class="logo"> Octopus's <span class="logo-end">Garden</span></span>
             </div>
             <div class="cart-btn">
@@ -68,8 +69,12 @@
         </div>
     </header> -->
     <header class="section-title">
-        <h2>Search by name, brand, price</h2>
-        <input type="text" id="filterInput" placeholder="Search by name" />
+        <label for="filterInput">Search by name, brand, price</label>
+        <br>
+        <input type="text" name="filterInput" id="filterInput" placeholder="Search by name" />
+        <br/>
+        <label for="available">In Stock</label>
+        <input type="checkbox" name='available' id='available' />
     </header>
     <main class="products">
         
@@ -184,6 +189,6 @@
         <p>In an octopus's garden near a cave</p>
         <p>We could be so happy &copy; 2020</p>
     </footer>
-    <script src="app.js"></script>
+    <script src="./app.js"></script>
 </body>
 </html>
