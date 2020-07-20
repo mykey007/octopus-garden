@@ -174,7 +174,7 @@ class UI {
         cartContent.addEventListener("click", event => {
           if (event.target.classList.contains("remove-item")) {
             let removeItem = event.target;
-            let id = removeItem.dataset.id;
+            let id = removeItem.dataset.prodId;
             cartContent.removeChild(removeItem.parentElement.parentElement);
             // remove item
             this.removeItem(id);
@@ -183,8 +183,8 @@ class UI {
       }
       clearCart() {
         // console.log(this);
-        let cartItems = cart.map(item => item.id);
-        cartItems.forEach(id => this.removeItem(id));
+        let cartItems = cart.map(item => item.prodId);
+        cartItems.forEach(prodId => this.removeItem(prodId));
         while (cartContent.children.length > 0) {
           cartContent.removeChild(cartContent.children[0]);
         }
