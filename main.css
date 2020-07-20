@@ -265,6 +265,10 @@ h4 {
         padding:1rem 0 0 0;
         max-width: 282px;
     }
+    @media screen and (max-width: 600px) {
+        .article-border {max-width: 100%;}
+    }
+
     .article-border:hover {
         border: 1px solid var(--mainGrey);
     }
@@ -372,11 +376,6 @@ h4 {
     color: grey;
     cursor: pointer;
   }
-  .la-chevron-up,
-  .la-chevron-down {
-    color: var(--primaryColor);
-    cursor: pointer;
-  }
 
 
   /* ############### Cart Footer ############### */
@@ -408,13 +407,6 @@ h4 {
   }
 
 
-
-
-
-
-
-
-
 /* Checkbox */
 
 .checkbox {
@@ -422,137 +414,4 @@ h4 {
     height: 1.75rem;
 }
 
-.collection__filter-checkbox-list {
-    list-style: none;
-    margin-bottom: 2rem;
-  }
-  
-  .collection__filter-collapsible .collection__filter-checkbox-list {
-    padding: 8px 0 7px 10px;
-    /* When embedded into a collapsible it get more padding */
-  }
-  
-  .collection__filter-checkbox {
-    display: flex;
-    align-items: center;
-    padding: 2px 0 3px 0;
-  }
-  
-  .collection__filter-checkbox label {
-    margin-left: 4px; /* This is micro-alignment to respect the design due to the usage of flexbox here */
-    line-height: 1.5;
-  }
-  
-  /* Active filters */
-  
-  .collection__filter-icon--active {
-    position: relative;
-  }
-  
-  .collection__filter-icon--active::after {
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 13px;
-    width: 8px;
-    height: 8px;
-    border-radius: 100%;
-    background: var(--accent-color);
-  }
-  
-  .collection__active-filters {
-    margin: -5px 0 16px 0;
-  }
-  
-  .collection__active-filters:empty {
-    display: none;
-  }
-  
-  .collection__active-filter-item {
-    display: flex;
-    width: 100%;
-    padding: 4px 0;
-    align-items: center;
-    line-height: 1.5;
-    font-weight: var(--text-font-bolder-weight);
-    color: var(--accent-color);
-  }
-  
-  .collection__active-filter-cross {
-    position: relative;
-    display: inline-block;
-    margin-right: 12px;
-    background: var(--accent-color);
-    color: var(--secondary-background);
-    height: 20px;
-    width: 20px;
-    border-radius: 3px;
-    box-shadow: 0 1px rgba(var(--border-color-rgb), 0.4);
-  }
-  
-  .collection__active-filter-cross svg {
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    width: 8px;
-    height: 8px;
-    stroke-width: 2px;
-    stroke: white;
-  }
-  
-  .collection__clear-filter {
-    margin: 13px 0 9px 0;
-  }
-  
-  @media screen and (min-width: 1000px) {
-    .collection__filter-group {
-      padding: 6px 0;
-      border-bottom: 0;
-    }
-  
-    .collection__filter-group-name {
-      justify-content: flex-start;
-    }
-  
-    /* Linklist */
-    .collection__filter-linklist {
-      padding: 0 0 9px 0;
-    }
-  
-    .collection__filter-linklist .collection__filter-linklist {
-      padding-left: 15px;
-    }
-  
-    .collection__filter-link {
-      padding: 2px 0;
-    }
-  
-    /* Color */
-    .collection__filter-color-list {
-      padding: 12px 0 10px 0;
-    }
-  
-    /* Checkbox */
-    .collection__filter-collapsible .collection__filter-checkbox-list {
-      padding-bottom: 12px;
-    }
-  
-    .collection__filter-group:last-child .collection__filter-checkbox-list {
-      padding-bottom: 0;
-      /* Last one must have its padding removed */
-    }
-  
-    .collection__filter-checkbox {
-      padding: 0;
-    }
-    .collection__filter-checkbox .checkbox-wrapper {
-      margin: 8px 0;
-    }
-  }
-  
-  @media screen and (min-width: 1280px) {
-    .collection__sidebar {
-      flex-basis: 290px;
-    }
-  }
   

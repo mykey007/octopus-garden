@@ -18,7 +18,7 @@ let buttonsDOM = []
 
 // get products
 class Products {
-    // only get when the promise is returned
+    // only get when the promise is returned and use .then
     async getProducts() {
         try {
             let result = await fetch('./ListJSONTest.json')
@@ -73,28 +73,29 @@ class UI {
 
     buyNow() {
         //spread operator to better traverse the nodelist
-        const buttons = [...document.querySelectorAll(".bag-btn")]
+        let buttons = [...document.querySelectorAll(".bag-btn")]
         buttonsDOM = buttons
 
         buttons.forEach(button => {
-            let id = button.dataset.id 
-
+            let id = button.dataset.prodId 
             //show values
             // console.log(id)
             let inCart = cart.find(item => item.id === id)
+
             if(inCart) {
                 button.innerText = 'In Cart'
                 button.disabled = true
             }
             // } else {
                 button.addEventListener('click', (event)=> {
+                    //disable button
                     event.target.innerText = 'In Cart'
                     event.target.disabled = true
                     // console.log(event)
 
                     // get product from products
-                    let cartItem = {...Storage.getProduct(id)}
-
+                    let cartItem = {...Storage.getProduct(id), amount: 1}
+                    // console.log(cartItem)
                     // add to empty cart array
                     cart = [...cart, cartItem]
                     // console.log(cart)
@@ -118,12 +119,16 @@ class UI {
 
     setCartValues(cart) {
         let tempTotal = 0
+        let itemsTotal = 0
 
         cart.map(item => {
             tempTotal += item.price * item.amount
+            itemsTotal += item.amount
         })
+        // fix amount returned and return a number, not string
         cartTotal.innerText = parseFloat(tempTotal.toFixed(2))
         // console.log(cartTotal)
+        cartItems.innerText = itemsTotal
     }
 
     addCartItem(item) {
@@ -146,6 +151,56 @@ class UI {
         cartOverlay.classList.add('transparentBcg')
         cartDOM.classList.add('showCart')
     }
+
+    setupAPP() {
+        cart = Storage.getCart();
+        this.setCartValues(cart);
+        this.populateCart(cart);
+        cartBtn.addEventListener("click", this.showCart);
+        closeCartBtn.addEventListener("click", this.hideCart);
+      }
+      populateCart(cart) {
+        cart.forEach(item => this.addCartItem(item));
+      }
+      hideCart() {
+        cartOverlay.classList.remove("transparentBcg");
+        cartDOM.classList.remove("showCart");
+      }
+
+      cartLogic() {
+        clearCartBtn.addEventListener("click", () => {
+          this.clearCart();
+        });
+        cartContent.addEventListener("click", event => {
+          if (event.target.classList.contains("remove-item")) {
+            let removeItem = event.target;
+            let id = removeItem.dataset.id;
+            cartContent.removeChild(removeItem.parentElement.parentElement);
+            // remove item
+            this.removeItem(id);
+          }
+        });
+      }
+      clearCart() {
+        // console.log(this);
+        let cartItems = cart.map(item => item.id);
+        cartItems.forEach(id => this.removeItem(id));
+        while (cartContent.children.length > 0) {
+          cartContent.removeChild(cartContent.children[0]);
+        }
+        this.hideCart();
+      }
+      removeItem(id) {
+        cart = cart.filter(item => item.id !== id);
+        this.setCartValues(cart);
+        Storage.saveCart(cart);
+        let button = this.getSingleButton(id);
+        button.disabled = false;
+        button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
+      }
+      getSingleButton(id) {
+        return buttonsDOM.find(button => button.dataset.id === id);
+      }
 }
 
 // save it locally
@@ -159,9 +214,14 @@ class Storage {
          return products.find(product => product.id === id)
      }
 
-     static saveCart(cart) {
-         localStorage.setItem('cart', JSON.stringify(cart))
-     }
+    static saveCart(cart) {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    static getCart() {
+        // either exists or doesn't exist
+        return localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [];
+    }
 }
 
 
@@ -190,13 +250,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const ui = new UI()
     const products = new Products()
     // const sort = new Sort()
-
+    ui.setupAPP()
     // get all the products
     products.getProducts().then(products => {
         ui.displayProducts(products)
         Storage.saveProducts(products)
     }).then(() => {
         ui.buyNow()
+        ui.cartLogic()
     })
 })
 
@@ -236,8 +297,6 @@ function filterNames() {
 
 
 function isAvailable() {
-    // Get the checkbox
-    let availableInput = document.getElementById('available')
     // Get the output 
     let product = document.querySelectorAll('article.article-border')
 
@@ -255,7 +314,6 @@ function isAvailable() {
             if (e.dataset.available === 'true') {
                 e.style.display = "flex"
             }
-            let product = 1
         })
     }
 }
