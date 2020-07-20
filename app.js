@@ -51,7 +51,7 @@ class UI {
 
         products.forEach(product => {
             result += `
-                <article class="flex-col article-border">
+                <article class="flex-col article-border" data-brand="${product.brand}" data-available="${product.isAvailable}>
                     <div class="img-container">
                         <a href="${product.prodUrl}">
                             <img src="${product.image}" alt="${product.title}" class="product-img">
@@ -198,3 +198,32 @@ document.addEventListener("DOMContentLoaded", () => {
         ui.buyNow()
     })
 })
+
+
+
+// Main Search 
+
+// get input element
+let filterInput = document.getElementById('filterInput')
+// add event listener 
+filterInput.addEventListener('keyup', filterNames)
+
+function filterNames() {
+    let filterValue = document.getElementById('filterInput').value.toUpperCase()
+    console.log(filterValue)
+    // get product names
+    let names = document.getElementById('product-names')
+    // get product name
+    let product = names.querySelectorAll('article.article-border')
+
+    // loop through all products
+    for(let i = 0; i < product.length; i++) {
+        let title = product[i].getElementsByTagName('h3')[0]
+        // if matched
+        if(title.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+            product[i].style.display= ''
+        } else {
+            product[i].style.display= 'none'
+        }
+    }
+}

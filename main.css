@@ -116,7 +116,7 @@ body {
 
 .products {
     padding: 0rem;
-    max-width: 1170px;
+    max-width: 1420px;
     margin: 0 auto;
 }
 .section-title {
@@ -135,7 +135,7 @@ body {
   }
   .products-center {
     margin: 0 auto;
-    max-width: 840px;
+    max-width: 64vw;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     column-gap: 1.5rem;
@@ -204,7 +204,7 @@ body {
 
     .filters {
         display: block;
-        width: 25%;
+        width: 17vw;
         float: left;
     }
 
