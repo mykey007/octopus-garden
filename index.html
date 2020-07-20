@@ -65,107 +65,25 @@
     <!-- <header class="hero">
         <div class="banner">
             <h1 class="banner-title">View the Collection</h1>
-            <button class="banner-btn">View Now</button>
+            <button class="banner-btn">Shop Now</button>
         </div>
     </header> -->
     <header class="section-title">
-        <label for="filterInput">Search by name, brand, price</label>
-        <br>
-        <input type="text" name="filterInput" id="filterInput" placeholder="Search by name" />
-        <br/>
-        <label for="available">In Stock</label>
-        <input type="checkbox" name='available' id='available' />
+        <div class="search">
+            <label for="filterInput" class="search-title">Search by name and brand</label>
+            <input type="text" name="filterInput" id="filterInput" placeholder="Search..." />
+        </div>
+        <div class="isAvailable">
+            <input type="checkbox" name='available' id='available' class="checkbox" />
+            <label for="available">In Stock</label>
+        </div>
     </header>
     <main class="products">
         
         <section id='product-names' class="products-center">
         <!-- moved to app.js as template literal -->
         </section>
-        <div class="filters">
-      
-            <h2>Sort by</h2>
-
-            <h3>Price</h3>
-            <ul class="collection__filter-checkbox-list"><li class="collection__filter-checkbox">
-                <div class="checkbox-wrapper">
-                  <input type="checkbox" class="checkbox" id="filter-5-tag-price_-0-to-100" name="tag-price" data-action="toggle-tag" data-tag="price_-0-to-100" data-tag-user="$0 to $100">
-                  
-                </div>
-
-                <label for="filter-5-tag-price_-0-to-100">$0 to $100</label>
-              </li><li class="collection__filter-checkbox">
-                <div class="checkbox-wrapper">
-                  <input type="checkbox" class="checkbox" id="filter-5-tag-price_-100-to-250" name="tag-price" data-action="toggle-tag" data-tag="price_-100-to-250" data-tag-user="$100 to $250">
-                  
-                </div>
-
-                <label for="filter-5-tag-price_-100-to-250">$100 to $250</label>
-              </li><li class="collection__filter-checkbox">
-                <div class="checkbox-wrapper">
-                  <input type="checkbox" class="checkbox" id="filter-5-tag-price_-250-to-500" name="tag-price" data-action="toggle-tag" data-tag="price_-250-to-500" data-tag-user="$250 to $500">
-                  
-                </div>
-
-                <label for="filter-5-tag-price_-250-to-500">$250 to $500</label>
-              </li><li class="collection__filter-checkbox">
-                <div class="checkbox-wrapper">
-                  <input type="checkbox" class="checkbox" id="filter-5-tag-price_-500-to-800" name="tag-price" data-action="toggle-tag" data-tag="price_-500-to-800" data-tag-user="$500 to $800">
-                  
-                </div>
-
-                <label for="filter-5-tag-price_-500-to-800">$500 to $800</label>
-              </li>
-
-              <li class="collection__filter-checkbox">
-                <div class="checkbox-wrapper">
-                  <input type="checkbox" class="checkbox" id="filter-5-tag-price_-800-to-1500" name="tag-price" data-action="toggle-tag" data-tag="price_-800-to-1500" data-tag-user="$800 to $1500">
-                  
-                </div>
-
-                <label for="filter-5-tag-price_-800-to-1500">$800 to $1500</label>
-              </li>
-              <li class="collection__filter-checkbox">
-                <div class="checkbox-wrapper">
-                  <input type="checkbox" class="checkbox" id="filter-5-tag-price_more-than-1500" name="tag-price" data-action="toggle-tag" data-tag="price_more-than-1500" data-tag-user="More than $1500">
-                  
-                </div>
-
-                <label for="filter-5-tag-price_more-than-1500">More than $1500</label>
-              </li></ul>
-
-
-
-              <h3>Brand</h3>
-              <ul class="collection__filter-checkbox-list">
-                <li class="collection__filter-checkbox">
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" class="checkbox" id="filter-Mary-B" name="tag-price" data-action="toggle-tag" data-tag="filter-Mary-B" data-tag-user="filter-Mary-B">
-                    </div>
-                    <label for="filter-Mary-B">Mary B Decorative Art</label>
-                </li>
-                <li class="collection__filter-checkbox">
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" class="checkbox" id="filter-Zeckos" name="tag-price" data-action="toggle-tag" data-tag="Zeckos" data-tag-user="Zeckos">
-                    </div>
-                    <label for="filter-Zeckos">Zeckos</label>
-                </li>
-                <li class="collection__filter-checkbox">
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" class="checkbox" id="filter-UnbeatableSale" name="tag-price" data-action="toggle-tag" data-tag="UnbeatableSale" data-tag-user="UnbeatableSale">
-                    </div>
-                    <label for="filter-UnbeatableSale">UnbeatableSale</label>
-                </li>
-                <li class="collection__filter-checkbox">
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" class="checkbox" id="filter-Christmas-Central" name="tag-price" data-action="filter-Christmas-Central" data-tag-user="filter-Christmas-Central">
-                    </div>
-                    <label for="filter-Christmas-Central">Christmas Central</label>
-                </li>
-
-              </ul>
-
-        </div>
-        <br class="clear" />
+        <!-- TODO: add filter sidebar -->
     </main>
     <aside class="cart-overlay">
         <div class="cart">

@@ -246,15 +246,16 @@ function isAvailable() {
         console.log(1)
         product.forEach(e => {
             if (e.dataset.available === 'false') {
-                e.style.display = "none";
+                e.style.display = "none"
             }
         })
     } else {
         product.forEach(e => {
             console.log(2)
             if (e.dataset.available === 'true') {
-                e.style.display = "";
+                e.style.display = "flex"
             }
+            let product = 1
         })
     }
 }
