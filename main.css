@@ -35,9 +35,26 @@ body {
   font-family: "Mulish", sans-serif;
 }
 
-.clear {clear: both;}
+h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom:1rem;
+    padding: .25rem 0.75rem;
+}
+
+h4 {
+    /* font-weight: 700; */
+    margin-bottom:1rem;
+}
 
 /* ############### Components ############### */
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center
+}
 
 /* ############### Nav Styles ############### */
 .navbar {
@@ -238,6 +255,26 @@ body {
     color: var(--primaryColor);
     text-align: center;
   }
+
+
+
+    .article-border {
+        border: 1px solid transparent;
+        border-bottom: 1px solid var(--mainGrey);
+        border-radius: 6px;
+        padding:1rem 0 0 0;
+        max-width: 282px;
+    }
+    .article-border:hover {
+        border: 1px solid var(--mainGrey);
+    }
+
+    .price-color {
+        color: var(--primaryColor);
+        align-self: flex-start;
+        font-size: 1.5625rem;
+        padding: 0.25rem 0.75rem
+    }
   
   /* ############### End of Products ############### */
 
